@@ -11,15 +11,15 @@ float nn_interpolate(image im, int c, float h, float w)
 
 image nn_resize(image im, int h, int w)
 {
+    float h_ratio = (float) (im.h) / h;
+    float w_ratio = (float) (im.w) / w;
     // TODO
     image new = make_image(im.c, h, w);
     for (int i = 0; i < im.c; i++) {
         for (int j = 0; j < h; j++) {
             for (int k = 0; k < w; k++) {
-                float h_ratio = (float) (im.h + 0.5) / h;
-                float w_ratio = (float) (im.w + 0.5) / w;
-                float h_ = j * h_ratio - 0.25;
-                float w_ = k * w_ratio - 0.25;
+                float h_ = (j + 0.5) * h_ratio - 0.5;
+                float w_ = (k + 0.5) * w_ratio - 0.5;
                 float pixel = nn_interpolate(im, i, h_, w_);
                 set_pixel(new, i, j, k, pixel);
             }
@@ -61,10 +61,10 @@ image bilinear_resize(image im, int h, int w)
     for (int i = 0; i < im.c; i++) {
         for (int j = 0; j < h; j++) {
             for (int k = 0; k < w; k++) {
-                float h_ratio = (float)(im.h + 0.5) / h;
-                float w_ratio = (float)(im.w + 0.5) / w;
-                float h_ = j * h_ratio - 0.25;
-                float w_ = k * w_ratio - 0.25;
+                float h_ratio = (float)(im.h) / h;
+                float w_ratio = (float)(im.w) / w;
+                float h_ = (j + 0.5) * h_ratio - 0.5;
+                float w_ = (k + 0.5) * w_ratio - 0.5;
                 float pixel = bilinear_interpolate(im, i, h_, w_);
                 set_pixel(new, i, j, k, pixel);
             }

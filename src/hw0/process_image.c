@@ -16,8 +16,10 @@ float get_pixel(image im, int c, int h, int w)
     int c_ = c;
     int h_ = h;
     int w_ = w;
+    if(c < 0) { c_ = 0; }
     if(h < 0) { h_ = 0; }
     if(w < 0) { w_ = 0; }
+    if(c >= im.c) { c_ = im.c - 1; }
     if(h >= im.h) { h_ = im.h - 1; }
     if(w >= im.w) { w_ = im.w - 1; }
     float res = im.data[c_ * (im.h * im.w) + h_ * im.w + w_];
