@@ -9,9 +9,6 @@ void hsv_to_rgb_pixel(float H, float S, float V, float *R, float *G, float *B);
 
 float get_pixel(image im, int c, int h, int w)
 {
-    if(c < 0 || c > 2) {
-        return 0;
-    }
 
     int c_ = c;
     int h_ = h;
