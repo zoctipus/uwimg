@@ -1,0 +1,15 @@
+{
+    "env": {
+        "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/include"],
+        "myCompilerPath": "/usr/local/bin/gcc-7"
+      },
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [ "${workspaceFolder}/**"],
+            "defines": [],
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
