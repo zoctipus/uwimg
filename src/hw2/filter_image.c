@@ -146,10 +146,16 @@ image make_emboss_filter()
 }
 
 // Question 2.2.1: Which of these filters should we use preserve when we run our convolution and which ones should we not? Why?
-// Answer: TODO
+// Answer: 
+// we should use preserve when we run convolution for the filters Emboss and Sharpen, because we want to preserve the color of the image.
+// we should not use preserve when we run convolution for the filter Highpass, because we want the high frequncy indication of the image.
+// the frequency should consider all color channels, so we should not use preserve.
+
+
 
 // Question 2.2.2: Do we have to do any post-processing for the above filters? Which ones and why?
-// Answer: TODO
+// Answer: No we do not use any post-processing for the above filters, because all the post-processing is done in the convolution function.
+// and the we we defined getPixel and setPixel.
 
 float estimateGuassian(int x, int y, float sigma) {
     return 1 / (TWOPI * sigma * sigma) * exp(-(x * x + y * y) / (2 * sigma * sigma));
